@@ -1,0 +1,872 @@
+/* =========================================================
+   ANALYTICS AI
+   FINAL DARK VODAFONE / AI COLOR THEME
+   ========================================================= */
+
+:root {
+  /* =======================================================
+     DARK UI
+     ======================================================= */
+
+  --bg-main: #050a12;
+  --bg-sidebar: #071321;
+  --bg-header: #0b101c;
+  --bg-section: #0d1626;
+
+  --bg-card: #1b263c;
+  --bg-card-dark: #101a2d;
+  --bg-card-hover: #202d46;
+
+  /* =======================================================
+     VODAFONE / AI PRIMARY COLORS
+     ======================================================= */
+
+  --vodafone-red: #e60000;
+  --vodafone-red-bright: #ff0018;
+  --vodafone-red-dark: #8f0012;
+
+  --magenta: #d50072;
+  --purple: #9138da;
+
+  /* Main AI gradient */
+  --gradient-primary:
+    linear-gradient(
+      135deg,
+      #e60000 0%,
+      #d50072 50%,
+      #9138da 100%
+    );
+
+  /* Reverse AI gradient */
+  --gradient-ai:
+    linear-gradient(
+      135deg,
+      #9138da 0%,
+      #d50072 50%,
+      #e60000 100%
+    );
+
+  /* =======================================================
+     DASHBOARD DATA COLORS
+     ======================================================= */
+
+  --cyan: #00d8ff;
+  --cyan-dark: #007f9e;
+
+  --green: #28e98c;
+  --green-dark: #0e8053;
+
+  --orange: #ff8a1f;
+  --orange-dark: #a74b0a;
+
+  --yellow: #ffbe45;
+
+  /* =======================================================
+     TEXT
+     ======================================================= */
+
+  --text-primary: #ffffff;
+  --text-secondary: #8ba8d1;
+  --text-muted: #516c91;
+  --text-disabled: #344967;
+
+  /* =======================================================
+     BORDERS
+     ======================================================= */
+
+  --border: rgba(139, 168, 209, 0.16);
+
+  --border-hover: rgba(213, 0, 114, 0.45);
+
+  --border-active: rgba(230, 0, 0, 0.45);
+
+  /* =======================================================
+     SHADOWS
+     ======================================================= */
+
+  --shadow-card:
+    0 8px 30px rgba(0, 0, 0, 0.30);
+
+  --shadow-heavy:
+    0 12px 40px rgba(0, 0, 0, 0.40);
+
+  /* =======================================================
+     SUBTLE GLOWS
+     ======================================================= */
+
+  --glow-red:
+    0 0 24px rgba(230, 0, 0, 0.22);
+
+  --glow-magenta:
+    0 0 24px rgba(213, 0, 114, 0.18);
+
+  --glow-purple:
+    0 0 24px rgba(145, 56, 218, 0.20);
+
+  --glow-cyan:
+    0 0 24px rgba(0, 216, 255, 0.18);
+
+  /* =======================================================
+     LAYOUT VARIABLES
+     
+     NOTE:
+     These are kept moderate for now.
+     We will tune screen sizing separately.
+     ======================================================= */
+
+  --sidebar-width: 250px;
+  --header-height: 64px;
+
+  /* =======================================================
+     BORDER RADIUS
+     ======================================================= */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* =======================================================
+     TRANSITIONS
+     ======================================================= */
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+
+body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  border-radius: 4px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple);
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(213, 0, 114, 0.35);
+  color: var(--text-primary);
+}
+
+
+/* =========================================================
+   COMMON ELEMENTS
+   ========================================================= */
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--magenta);
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   APPLICATION SHELL
+   ========================================================= */
+
+.app {
+  display: flex;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: var(--bg-main);
+  color: var(--text-primary);
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 22px 16px;
+
+  background: var(--bg-sidebar);
+
+  border-right: 1px solid var(--border);
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 4px 8px 24px;
+}
+
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: var(--gradient-primary);
+
+  box-shadow: var(--glow-red);
+
+  color: var(--text-primary);
+
+  font-size: 20px;
+}
+
+
+.brand-name {
+  color: var(--text-primary);
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+.brand-subtitle {
+  margin-top: 3px;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   NEW CHAT BUTTON
+   ========================================================= */
+
+.new-chat {
+  width: 100%;
+
+  padding: 11px 14px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border: 1px solid rgba(230, 0, 0, 0.35);
+
+  border-radius: var(--radius-md);
+
+  background: var(--gradient-primary);
+
+  color: var(--text-primary);
+
+  font-weight: 600;
+
+  box-shadow: var(--glow-red);
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-normal);
+}
+
+
+.new-chat:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    var(--glow-red),
+    var(--glow-magenta);
+}
+
+
+.new-chat span {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navigation {
+  margin-top: 28px;
+}
+
+
+.nav-section-title {
+  padding: 0 10px;
+
+  margin: 18px 0 8px;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+}
+
+
+.nav-item {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  margin-bottom: 4px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  border: 1px solid transparent;
+
+  border-radius: var(--radius-sm);
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  text-align: left;
+
+  transition:
+    background var(--transition-normal),
+    border var(--transition-normal),
+    color var(--transition-normal);
+}
+
+
+.nav-item:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(230, 0, 0, 0.10),
+      rgba(213, 0, 114, 0.08),
+      rgba(145, 56, 218, 0.06)
+    );
+
+  border-color: rgba(213, 0, 114, 0.20);
+
+  color: var(--text-primary);
+}
+
+
+.nav-item.active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(230, 0, 0, 0.20),
+      rgba(213, 0, 114, 0.12),
+      rgba(145, 56, 218, 0.08)
+    );
+
+  border-color: rgba(230, 0, 0, 0.30);
+
+  color: var(--text-primary);
+
+  box-shadow:
+    inset 3px 0 0 var(--vodafone-red);
+}
+
+
+.nav-item span {
+  width: 18px;
+
+  text-align: center;
+
+  color: inherit;
+}
+
+
+/* =========================================================
+   SIDEBAR STATUS
+   ========================================================= */
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+
+.ai-status {
+  padding: 10px 12px;
+
+  border-radius: var(--radius-sm);
+
+  background: rgba(40, 233, 140, 0.05);
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+}
+
+
+.status-dot {
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  margin-right: 7px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow:
+    0 0 8px rgba(40, 233, 140, 0.45);
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg-main);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+  height: var(--header-height);
+
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-shrink: 0;
+
+  border-bottom: 1px solid var(--border);
+
+  background: var(--bg-header);
+}
+
+
+.page-title {
+  color: var(--text-primary);
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+
+.page-subtitle {
+  margin-top: 3px;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+}
+
+
+.header-right {
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+}
+
+
+.business-badge {
+  padding: 7px 11px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  color: var(--text-secondary);
+
+  font-size: 11px;
+}
+
+
+.business-badge span {
+  color: var(--green);
+
+  margin-right: 5px;
+}
+
+
+.profile {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--gradient-primary);
+
+  color: var(--text-primary);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  box-shadow: var(--glow-red);
+}
+
+
+.profile-name {
+  color: var(--text-primary);
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.profile-role {
+  margin-top: 2px;
+
+  color: var(--text-muted);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   CONVERSATION
+   ========================================================= */
+
+.conversation {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 60px 30px 30px;
+}
+
+
+.welcome {
+  width: min(720px, 100%);
+
+  text-align: center;
+
+  margin-top: 60px;
+}
+
+
+.welcome-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: var(--gradient-ai);
+
+  box-shadow: var(--glow-purple);
+
+  color: var(--text-primary);
+
+  font-size: 27px;
+}
+
+
+.welcome h1 {
+  color: var(--text-primary);
+
+  font-size: 27px;
+
+  font-weight: 600;
+}
+
+
+.welcome p {
+  max-width: 560px;
+
+  margin: 12px auto 0;
+
+  color: var(--text-secondary);
+
+  line-height: 1.6;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SUGGESTIONS
+   ========================================================= */
+
+.suggestions {
+  margin-top: 30px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+
+.suggestions button {
+  padding: 13px 15px;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--bg-card-dark);
+
+  color: var(--text-secondary);
+
+  text-align: left;
+
+  transition:
+    background var(--transition-normal),
+    border var(--transition-normal),
+    color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+
+.suggestions button:hover {
+  border-color: var(--border-hover);
+
+  background: var(--bg-card-hover);
+
+  color: var(--text-primary);
+
+  box-shadow: var(--glow-magenta);
+}
+
+
+/* =========================================================
+   CHAT INPUT
+   ========================================================= */
+
+.chat-area {
+  width: min(820px, calc(100% - 60px));
+
+  margin: 0 auto;
+
+  padding: 0 0 22px;
+
+  flex-shrink: 0;
+}
+
+
+.chat-input-wrapper {
+  display: flex;
+
+  align-items: flex-end;
+
+  padding: 10px 10px 10px 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  background: var(--bg-card-dark);
+
+  transition:
+    border var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+
+.chat-input-wrapper:focus-within {
+  border-color: rgba(213, 0, 114, 0.50);
+
+  box-shadow: var(--glow-magenta);
+}
+
+
+.chat-input-wrapper textarea {
+  flex: 1;
+
+  resize: none;
+
+  outline: none;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  line-height: 1.5;
+}
+
+
+.chat-input-wrapper textarea::placeholder {
+  color: var(--text-muted);
+}
+
+
+.send-button {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: var(--gradient-primary);
+
+  color: var(--text-primary);
+
+  font-size: 16px;
+
+  box-shadow: var(--glow-red);
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-normal);
+}
+
+
+.send-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    var(--glow-red),
+    var(--glow-magenta);
+}
+
+
+.input-hint {
+  margin-top: 8px;
+
+  color: var(--text-disabled);
+
+  text-align: center;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 210px;
+  }
+
+  .header {
+    padding: 0 18px;
+  }
+
+  .business-badge {
+    display: none;
+  }
+
+  .suggestions {
+    grid-template-columns: 1fr;
+  }
+}
