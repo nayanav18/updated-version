@@ -23,6 +23,98 @@
 
   --vodafone-red: #e60000;
   --vodafone-red-bright: #ff0018;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   FINAL SCREEN-FIT ADJUSTMENTS
+   ========================================================= */
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sidebar {
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.main-content {
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.header {
+  flex-shrink: 0;
+}
+
+.conversation {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 30px 24px 15px;
+}
+
+.welcome {
+  margin-top: 20px;
+}
+
+.welcome-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+}
+
+.welcome h1 {
+  font-size: 25px;
+}
+
+.welcome p {
+  margin-top: 8px;
+}
+
+.suggestions {
+  margin-top: 20px;
+}
+
+.suggestions button {
+  padding: 11px 14px;
+}
+
+.chat-area {
+  flex-shrink: 0;
+  width: min(820px, calc(100% - 48px));
+  padding-bottom: 14px;
+}
+
+.chat-input-wrapper {
+  min-height: 52px;
+}
+
+.input-hint {
+  margin-top: 5px;
+}
   --vodafone-red-dark: #8f0012;
 
   --magenta: #d50072;
